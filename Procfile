@@ -1,1 +1,0 @@
-web: bin/golang-gin-goc
