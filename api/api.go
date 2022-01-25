@@ -3,7 +3,7 @@ package api
 import (
 	"app/main/model"
 	"encoding/json"
-	"io"
+	"io/ioutil"
 	"net/http"
 )
 
@@ -32,7 +32,7 @@ func (covidAPI *CovidAPI) Alert(data []model.Covid) {
 func (covidAPI CovidAPI) FetchCovidAPI() {
 	res, _ := http.Get("http://static.wongnai.com/devinterview/covid-cases.json")
 
-	body, _ := io.ReadAll(res.Body)
+	body, _ := ioutil.ReadAll(res.Body)
 
 	data := struct {
 		Data []model.Covid
