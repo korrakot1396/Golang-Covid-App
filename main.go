@@ -27,6 +27,10 @@ func main() {
 		Extension: ".html",
 	})
 
+	app.GET("/", func(c *gin.Context) {
+		c.JSON(http.StatusOK, apiCovid.Calculate())
+	})
+
 	app.GET("/covid/summary", func(c *gin.Context) {
 		c.JSON(http.StatusOK, apiCovid.Calculate())
 	})
