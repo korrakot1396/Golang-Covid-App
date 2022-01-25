@@ -23,6 +23,8 @@ func main() {
 
 	app := gin.Default()
 
+	app.Use(CORSMiddleware())
+
 	app.HTMLRender = gintemplate.New(gintemplate.TemplateConfig{
 		Root:      ".",
 		Extension: ".html",
