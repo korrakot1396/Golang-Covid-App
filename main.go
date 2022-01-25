@@ -35,5 +35,5 @@ func main() {
 		c.JSON(http.StatusOK, apiCovid.Calculate())
 	})
 
-	app.Run(":8000")
+	app.Run()
 }
