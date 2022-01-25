@@ -30,23 +30,15 @@ func (covidAPI *CovidAPI) Alert(data []model.Covid) {
 }
 
 func (covidAPI CovidAPI) FetchCovidAPI() {
-	res, err := http.Get("http://static.wongnai.com/devinterview/covid-cases.json")
-	if err != nil {
-		panic(err)
-	}
+	res, _ := http.Get("http://static.wongnai.com/devinterview/covid-cases.json")
 
-	body, err := io.ReadAll(res.Body)
-	if err != nil {
-		panic(err)
-	}
+	body, _ := io.ReadAll(res.Body)
 
 	data := struct {
 		Data []model.Covid
 	}{}
 
-	if err := json.Unmarshal(body, &data); err != nil {
-		panic(err)
-	}
+	json.Unmarshal(body, &data)
 
 	covidAPI.Alert(data.Data)
 }
