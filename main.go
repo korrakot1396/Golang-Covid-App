@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	gintemplate "github.com/foolin/gin-template"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -30,6 +31,8 @@ func main() {
 	app.GET("/covid/summary", func(c *gin.Context) {
 		c.JSON(http.StatusOK, apiCovid.Calculate())
 	})
+
+	app.Use(cors.Default())
 
 	app.Run()
 }
