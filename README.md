@@ -14,7 +14,7 @@ _For backend_
 ```shell
 go mod tidy
 go run main.go
-open localhost:8000/covid/summary
+open localhost:8080/covid/summary
 ```
 
 _For test_
